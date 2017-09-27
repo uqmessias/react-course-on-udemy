@@ -16,7 +16,8 @@ const RouterComponent = () => {
                 </Scene>
                 <Stack key="main" >
                     <Scene
-                        back={false}
+                        rightTitle="Add"
+                        onRight={(obj) => console.log('onright: ', obj)}
                         key="employeeList"
                         component={EmployeeList}
                         titleStyle={{ alignSelf: 'center' }}
