@@ -27,4 +27,4 @@ export const employeeFetch = () => (dispatch) => {
         .on('value', snapshot => {
             dispatch({ type: EMPLOYEES_FECTH_SUCCESS, payload: snapshot.val() });
         });
-}
+};
