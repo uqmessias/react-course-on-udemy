@@ -42,7 +42,7 @@ export default (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 password: '',
-                error: 'Authenticatio failed.',
+                error: 'Authentication failed.',
                 loading: false,
             };
         default:

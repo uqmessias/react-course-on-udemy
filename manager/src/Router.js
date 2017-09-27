@@ -1,23 +1,29 @@
 import React from 'react';
-import { Stack, Scene, Router } from 'react-native-router-flux';
+import { Stack, Modal, Scene, Router } from 'react-native-router-flux';
 import LoginForm from './components/LoginForm';
 import EmployeeList from './components/EmployeeList';
 
 const RouterComponent = () => {
     return (
         <Router>
-            <Stack key="root">
-                <Scene
-                    key="login"
-                    component={LoginForm}
-                    title="Please login"
-                />
-                <Scene
-                    key="employeeList"
-                    component={EmployeeList}
-                    title="Employees"
-                />
-            </Stack>
+            <Modal hideNavBar>
+                <Scene key="auth">
+                    <Scene
+                        key="login"
+                        component={LoginForm}
+                        title="Please login"
+                    />
+                </Scene>
+                <Stack key="main" >
+                    <Scene
+                        back={false}
+                        key="employeeList"
+                        component={EmployeeList}
+                        titleStyle={{ alignSelf: 'center' }}
+                        title="Employees"
+                    />
+                </Stack>
+            </Modal>
         </Router>
     );
 };
