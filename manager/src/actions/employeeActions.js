@@ -42,3 +42,12 @@ export const employeeSave = ({ name, phone, shift, uid }) => (dispatch) => {
 };
 
 export const employeeClear = () => ({ type: EMPLOYEE_CLEAR_FORM });
+
+export const employeeDelete = uid => () => {
+    const { currentUser } = firebase.auth();
+    firebase.database().ref(`/users/${currentUser.uid}/employees/${uid}`)
+        .remove()
+        .then(() => {
+            Actions.main({ type: 'reset' });
+        });
+};
